@@ -70,6 +70,19 @@ func (dc *DefaultCommand) Start(command *commander.Commander) error {
 }
 
 func isBeauty(address string) bool {
+	prefix7 := address[:7]
+	isSame := true
+	first := prefix7[0]
+	for a := range prefix7 {
+		if a != int(first) {
+			isSame = false
+			break
+		}
+	}
+	if isSame {
+		return true
+	}
+
 	prefix6 := address[:6]
 	if strings.EqualFold(prefix6, "solsol") {
 		return true
